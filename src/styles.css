@@ -1,0 +1,36 @@
+:root { --bg: #1a1a1a; --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+* { box-sizing: border-box; }
+html { scroll-snap-type: y mandatory; overflow-y: auto; }
+html.locked { overflow: hidden; }
+html, body { margin: 0; background: var(--bg); color: #fff;
+             font-family: var(--mono); -webkit-font-smoothing: antialiased; }
+/* one full-screen step per caption; the canvas stays fixed behind them */
+#steps section { height: 100vh; height: 100svh; scroll-snap-align: start; }
+canvas#stage { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+video#cam { position: fixed; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+/* ---------- fixed labels ---------- */
+#labels { position: fixed; inset: 0; pointer-events: none; font: 400 10px var(--mono);
+          text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.5);
+          line-height: 1.4; transition: opacity .6s; }
+#labels.hidden { opacity: 0; }
+.lab { position: absolute; }
+.tl { top: 50px; left: 50px; }
+.tc { top: 50px; left: 50%; transform: translateX(-50%); }
+.bc { bottom: 50px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+.bl { bottom: 50px; left: 50px; display: grid; grid-template-columns: 115px auto; line-height: 12px; }
+.br { bottom: 50px; right: 50px; text-align: right; }
+.br .stats { margin-bottom: 8px; color: rgba(255,255,255,.85); }
+.br .hint { transition: opacity .4s; }
+.br .hint.gone { opacity: 0; }
+.tr { top: 50px; right: 50px; pointer-events: auto; }
+#camSelect { font: inherit; letter-spacing: inherit; text-transform: uppercase; color: rgba(255,255,255,.5);
+             background: transparent; border: 0; padding: 0; text-align: right; cursor: pointer;
+             max-width: 220px; appearance: none; -webkit-appearance: none; }
+#camSelect:hover, #camSelect:focus-visible { color: #fff; outline: none; }
+#camSelect option { background: var(--bg); color: #fff; }
+@media (max-width: 900px) {
+  .tl, .tc, .bl { display: none; }
+  .bc { bottom: 24px; }
+  .tr { top: 24px; right: 24px; }
+}
