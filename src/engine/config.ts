@@ -12,9 +12,8 @@ export interface Slide {
 export const SLIDES: Slide[] = [
   { text: 'Hello',                layout: 'hero' },
   { text: 'I am\nPepijn',         layout: 'corner', scene: { kind: 'cloud', src: '/scenes/pepijn.pcd' } },
-  { text: 'I build\nthings',      layout: 'corner', scene: { kind: 'video', src: '/scenes/builders.mp4' } },
+  { text: 'I create\nthings',      layout: 'corner', scene: { kind: 'video', src: '/scenes/people.mp4' } },
   { text: 'i like\nnature',       layout: 'corner', scene: { kind: 'video', src: '/scenes/nature.mp4' } },
-  { text: 'and\nI like\npeople',  layout: 'corner', scene: { kind: 'video', src: '/scenes/people.mp4' } },
 ];
 export const SCENE_ALPHA = 0.45;   // brightest a scene letter gets; the body stays brighter
 // the live letter body: 'camera' = webcam + MediaPipe pose, 'demo' = the stick figure, 'off' = no body
